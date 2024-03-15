@@ -7,8 +7,8 @@ import dotenv from "dotenv";
 import itemsPool from './DBconfig.js'
 
 
-dotenv.config({path:"./.env"});
-console.log(dotenv.config({path:"./.env"}));
+dotenv.config();
+
 const app = express();
 const port = 5000;
 
