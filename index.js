@@ -10,7 +10,7 @@ import itemsPool from './DBconfig.js'
 dotenv.config();
 
 const app = express();
-const port = 5000;
+const PORT = 5000;
 
 //MIDDLEWARE
 app.use(cors());
@@ -50,7 +50,7 @@ app.get("/api/todos", async (req, res) => {
     const allTodos = await itemsPool.query("SELECT * FROM todos");
     console.log("my todos......",allTodos)
 
-    return res.json(allTodos.rows[0]);
+    return res.json(allTodos.rows);
   } catch (error) {
     console.error(error.message);
   }
@@ -89,7 +89,7 @@ app.delete("/api/todos/:id", async (req, res) => {
     console.error(error.message);
   }
 });
-app.listen(port, () => {
-  console.log(`SERVER HAS BEEN STARTED ON PORT ${port}`);
+app.listen(PORT, () => {
+  console.log(`SERVER HAS BEEN STARTED ON PORT ${PORT}`);
   
 });
